@@ -42,10 +42,10 @@ Group-Overrides:
     - nginx-1.4
     - web_proxy
 Endpoints:
-  - Private-IP-Name:   IP
-    Private-Port-Name: PORT
-    Private-Port:      5878
-    Public-Port-Name:  PROXY_PORT
+  - Private-IP-Name:   NGINX_IP
+    Private-Port-Name: NGINX_PORT
+    Private-Port:      8080
+    Public-Port-Name:  NGINX_PROXY_PORT
     Mappings:
       - Frontend:      ""
         Backend:       ""
@@ -53,4 +53,9 @@ Endpoints:
       - Frontend:      "/health"
         Backend:       ""
         Options:       { health: true }
+
+  - Private-IP-Name:    IP
+    Private-Port-Name:  PORT
+    Public-Port-Name:   PROXY_PORT
+    Private-Port: 5878
 Install-Build-Required: false
