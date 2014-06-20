@@ -40,8 +40,8 @@ function start() {
         # nginx will always use the prefix defined at compile time unless an absolute path to the conf file is given
         nohup "$NGINX_EXEC" -c "$NGINX_CONFIG_FILE" 2>&1
         [ "$?" == "0" ] && wait_for_pid_file $NGINX_PID_FILE
-       #nohup "$ROK4_EXEC" -f "$ROK4_CONFIG_FILE" 2>&1
-       #[ "$?" == "0" ] && wait_for_pid_file $ROK4_PID_FILE
+        nohup "$ROK4_EXEC" -f "$ROK4_CONFIG_FILE" 2>&1
+        [ "$?" == "0" ] && wait_for_pid_file $ROK4_PID_FILE
 
     else
         echo "WARN: Could not find the compiled application versions/$NGINX_VERSION/bin/nginx, will not start"
