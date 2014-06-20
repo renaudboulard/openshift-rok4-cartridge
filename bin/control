@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
-
+set -x
 NGINX_VERSION="1.4.4"
 NGINX_BIN_DIR=$OPENSHIFT_ROK4_DIR/usr/nginx/versions/$NGINX_VERSION/bin
 NGINX_EXEC=$OPENSHIFT_ROK4_DIR/usr/nginx/versions/$NGINX_VERSION/bin/nginx
