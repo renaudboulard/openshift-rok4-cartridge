@@ -19,11 +19,11 @@ function start() {
 
     if [ -f "$NGINX_EXEC" ]; then
 
-        pushd ROK4_BIN_DIR
+        pushd $ROK4_BIN_DIR
         find . -type f -exec chmod 755 {} \;
         popd
 
-        pushd NGINX_BIN_DIR
+        pushd $NGINX_BIN_DIR
         find . -type f -exec chmod 755 {} \;
         popd
 
