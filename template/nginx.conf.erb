@@ -10,11 +10,11 @@ server {
  
 	location /wmts {
 		fastcgi_pass rok4;
-		include fastcgi_params;
+		include <%= ENV['OPENSHIFT_ROK4_DIR'] %>usr/nginx/config/fastcgi_params;
 	}
-	
+
 	location /wms {
 		fastcgi_pass rok4;
-		include fastcgi_params;
+		include <%= ENV['OPENSHIFT_ROK4_DIR'] %>usr/nginx/config/fastcgi_params;
 	}
 }
