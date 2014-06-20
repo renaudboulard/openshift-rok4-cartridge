@@ -20,19 +20,19 @@
   <reprojectionCapability>true</reprojectionCapability>
  
   <!– Fichier contenant les parametres de service –>
-  <servicesConfigFile><%= ENV['OPENSHIFT_ROK4_DIR'] %>config/services.conf</servicesConfigFile>
+  <servicesConfigFile><%= ENV['OPENSHIFT_ROK4_DIR']%>usr/rok4/config/services.conf</servicesConfigFile>
  
   <!– Repertoire contenant les confs des layers –>
-  <layerDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>config/layers</layerDir>
+  <layerDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>usr/rok4/config/layers</layerDir>
  
   <!– Repertoire contenant les confs des styles –>
-  <styleDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>config/styles</styleDir>
+  <styleDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>usr/rok4/config/styles</styleDir>
  
   <!– Répertoire contenant les confs des TMS –>
-  <tileMatrixSetDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>config/tileMatrixSet</tileMatrixSetDir>
+  <tileMatrixSetDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>usr/rok4/config/tileMatrixSet</tileMatrixSetDir>
  
   <!– Répertoire contenant les registres proj4 –>
-  <projConfigDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>config/proj</projConfigDir>
+  <projConfigDir><%= ENV['OPENSHIFT_ROK4_DIR'] %>usr/rok4/config/proj</projConfigDir>
  
   <!– Chemin d'écoute du serveur FCGI dans le cas d'une socket UNIX "/var/run/rok4sock"
 Ou (ip d'écoute) deux point suivi d'un numéro de port "127.0.0.1:9000" ou ":9000"
