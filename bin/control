@@ -3,10 +3,12 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 NGINX_VERSION="1.4.4"
+NGINX_BIN_DIR=$OPENSHIFT_ROK4_DIR/usr/nginx/bin
 NGINX_EXEC=$OPENSHIFT_ROK4_DIR/usr/nginx/versions/$NGINX_VERSION/bin/nginx
 NGINX_CONFIG_FILE=$OPENSHIFT_ROK4_DIR/conf/nginx.conf
 NGINX_PID_FILE=$OPENSHIFT_ROK4_DIR/run/nginx.pid
 
+ROK4_BIN_DIR=$OPENSHIFT_ROK4_DIR/usr/rok4/bin
 ROK4_EXEC=$OPENSHIFT_ROK4_DIR/usr/rok4/bin/rok4
 ROK4_CONFIG_FILE=$OPENSHIFT_ROK4_DIR/conf/server.conf
 ROK4_PID_FILE=$OPENSHIFT_ROK4_DIR/run/rok4.pid
@@ -16,6 +18,14 @@ function start() {
     echo "Starting Rok4 & Nginx"
 
     if [ -f "$NGINX_EXEC" ]; then
+
+        pushd ROK4_BIN_DIR
+        find . -type f -exec chmod 755 {} \;
+        popd
+
+        pushd NGINX_BIN_DIR
+        find . -type f -exec chmod 755 {} \;
+        popd
 
         if [ -f "$OPENSHIFT_REPO_DIR/nginx.conf.erb" ]; then
             oo-erb $OPENSHIFT_REPO_DIR/nginx.conf.erb > $OPENSHIFT_REPO_DIR/nginx.conf
