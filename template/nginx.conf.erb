@@ -6,3 +6,23 @@ server {
         index  index.html index.htm;
     }
 }
+
+upstream rok4 { server localhost:5878; }
+ 
+server {
+listen 80;
+root /var/www;
+server_name localhost;
+ 
+access_log <%= ENV['OPENSHIFT_ROK4_DIR'] %>logs/rok4_access.log;
+error_log <%= ENV['OPENSHIFT_ROK4_DIR'] %>logs/rok4_error.log;
+ 
+location /wmts {
+fastcgi_pass rok4;
+include fastcgi_params;
+}
+location /wms {
+fastcgi_pass rok4;
+include fastcgi_params;
+}
+}
