@@ -1,27 +1,29 @@
-Name: nginx
-Cartridge-Short-Name: NGINX
+Name: rok4
+Cartridge-Short-Name: ROK4
 Display-Name: Nginx
-Version: "1.4.4"
-Versions: ["1.4.4"]
-Website: https://github.com/gsterjov/openshift-nginx-cart
-Cartridge-Version: 0.0.2
-Cartridge-Vendor: gsterjov
+Version: "0.18.0"
+Versions: ["0.18.0"]
+Website: https://github.com/dimsum12/openshift-rok4-cartridge
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: dimsum12
 Categories:
   - service
   - nginx
   - web_framework
+  - rok4
 Provides:
   - nginx-1.4
   - nginx
   - nginx(version) = 1.4.4
+  - rok4
 Scaling:
   Min: 1
   Max: -1
 Cart-Data:
-  - Key: OPENSHIFT_NGINX_PORT
+  - Key: OPENSHIFT_ROK4_PORT
     Type: environment
     Description: "Internal port to which the web-framework binds to."
-  - Key: OPENSHIFT_NGINX_IP
+  - Key: OPENSHIFT_ROK4_IP
     Type: environment
     Description: "Internal IP to which the web-framework binds to."
 Publishes:
@@ -42,7 +44,7 @@ Group-Overrides:
 Endpoints:
   - Private-IP-Name:   IP
     Private-Port-Name: PORT
-    Private-Port:      8080
+    Private-Port:      5878
     Public-Port-Name:  PROXY_PORT
     Mappings:
       - Frontend:      ""

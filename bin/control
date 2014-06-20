@@ -3,13 +3,17 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 
-NGINX_EXEC=$OPENSHIFT_NGINX_DIR/usr/versions/$NGINX_VERSION/bin/nginx
-NGINX_CONFIG_FILE=$OPENSHIFT_NGINX_DIR/conf/nginx.conf
-NGINX_PID_FILE=$OPENSHIFT_NGINX_DIR/run/nginx.pid
+NGINX_EXEC=$OPENSHIFT_ROK4_DIR/usr/nginx/versions/$NGINX_VERSION/bin/nginx
+NGINX_CONFIG_FILE=$OPENSHIFT_ROK4_DIR/conf/nginx.conf
+NGINX_PID_FILE=$OPENSHIFT_ROK4_DIR/run/nginx.pid
+
+ROK4_EXEC=$OPENSHIFT_ROK4_DIR/usr/rok4/bin/rok4
+ROK4_CONFIG_FILE=$OPENSHIFT_ROK4_DIR/conf/server.conf
+ROK4_PID_FILE=$OPENSHIFT_ROK4_DIR/run/rok4.pid
 
 
 function start() {
-    echo "Starting Nginx"
+    echo "Starting Rok4 & Nginx"
 
     if [ -f "$NGINX_EXEC" ]; then
 
@@ -17,9 +21,15 @@ function start() {
             oo-erb $OPENSHIFT_REPO_DIR/nginx.conf.erb > $OPENSHIFT_REPO_DIR/nginx.conf
         fi
 
+        if [ -f "$OPENSHIFT_REPO_DIR/server.conf.erb" ]; then
+            oo-erb $OPENSHIFT_REPO_DIR/server.conf.erb > $OPENSHIFT_REPO_DIR/server.conf
+        fi
+
         # nginx will always use the prefix defined at compile time unless an absolute path to the conf file is given
         nohup "$NGINX_EXEC" -c "$NGINX_CONFIG_FILE" 2>&1
         [ "$?" == "0" ] && wait_for_pid_file $NGINX_PID_FILE
+        nohup "$ROK4_EXEC" -f "ROK4_CONFIG_FILE" 2>&1
+        [ "$?" == "0" ] && wait_for_pid_file $ROK4_PID_FILE
 
     else
         echo "WARN: Could not find the compiled application versions/$NGINX_VERSION/bin/nginx, will not start"
@@ -28,18 +38,26 @@ function start() {
 
 
 function stop() {
-    echo "Starting Nginx"
+    echo "Stoping Nginx"
 
     if [ -f "$NGINX_PID_FILE" ]; then
         pid=`cat "$NGINX_PID_FILE" 2> /dev/null`
         eval "'$NGINX_EXEC' -c '$NGINX_CONFIG_FILE' -s stop"
         wait_for_stop $pid
     fi
+
+
+    if [ -f "$ROK4_PID_FILE" ]; then
+        pid=`cat "$ROK4_PID_FILE" 2> /dev/null`
+        kill $pid
+        wait_for_stop $pid
+    fi
 }
 
 
+
 function restart() {
-    echo "Restarting Nginx"
+    echo "Restarting Rok4 and Nginx"
     stop
     start
 }
@@ -74,7 +92,7 @@ function reload() {
 
 
 function tidy() {
-    client_message "Emptying log dir: $OPENSHIFT_NGINX_DIR/logs"
+    client_message "Emptying log dir: $OPENSHIFT_ROK4_DIR/logs"
     shopt -s dotglob
     rm -rf logs/*
 }
@@ -89,7 +107,7 @@ function update() {
     mkdir -p tmp/build
     bin/compile tmp/build
 
-    bin_dir="usr/versions/$version/bin"
+    bin_dir="usr/nginx/versions/$version/bin"
     mkdir -p $bin_dir
     cp -f tmp/build/out/nginx $bin_dir
     

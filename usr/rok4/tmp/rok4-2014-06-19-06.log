@@ -1,0 +1,5 @@
+2014/06/19 06:29:21.170342	INFO	pid=2784 *** DEBUT DU FONCTIONNEMENT DU LOGGER ***
+2014/06/19 06:29:21.170393	INFO	pid=2784 Construction de la configuration des services depuis ../config/services.conf
+2014/06/19 06:29:21.170408	ERROR	pid=2784 Ne peut pas charger le fichier ../config/services.conf
+2014/06/19 06:29:21.170415	FATAL	pid=2784 Impossible d'interpreter le fichier de conf ../config/services.conf
+2014/06/19 06:29:21.171100	FATAL	pid=2784 Extinction du serveur ROK4

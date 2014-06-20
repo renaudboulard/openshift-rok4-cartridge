@@ -1,0 +1,5 @@
+2014/06/19 05:31:28.128047	INFO	pid=2745 *** DEBUT DU FONCTIONNEMENT DU LOGGER ***
+2014/06/19 05:31:28.128072	INFO	pid=2745 Construction de la configuration des services depuis ../config/services.conf
+2014/06/19 05:31:28.128092	ERROR	pid=2745 Ne peut pas charger le fichier ../config/services.conf
+2014/06/19 05:31:28.128102	FATAL	pid=2745 Impossible d'interpreter le fichier de conf ../config/services.conf
+2014/06/19 05:31:28.128112	FATAL	pid=2745 Extinction du serveur ROK4

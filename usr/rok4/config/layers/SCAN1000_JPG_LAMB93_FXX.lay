@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<layer>
+    <title>SCAN1000_JPG_LAMB93_FXX</title>
+    <abstract>Couche utilisant le descripteur de pyramide SCAN1000_JPG_LAMB93_FXX.pyr</abstract>
+    <keywordList>
+        <keyword>LAMB93_10cm</keyword>
+        <keyword>255,255,255</keyword>
+        <keyword>rgb</keyword>
+        <keyword>bicubic</keyword>
+        <keyword>TIFF_JPG_INT8</keyword>
+        <keyword>Samples per pixel: 3</keyword>
+        <keyword>Tiles per width: 16</keyword>
+        <keyword>Tiles per height: 16</keyword>
+        <keyword>Directory depth: 2</keyword>
+    </keywordList>
+    <style>normal</style>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-4.9942572726974</westBoundLongitude>
+        <eastBoundLongitude>10.9803184076772</eastBoundLongitude>
+        <southBoundLatitude>41.0037193075078</southBoundLatitude>
+        <northBoundLatitude>51.1940240110352</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <WMSCRSList>
+        <WMSCRS>IGNF:LAMB93</WMSCRS>
+        <WMSCRS>CRS:84</WMSCRS>
+        <WMSCRS>IGNF:WGS84G</WMSCRS>
+        <WMSCRS>EPSG:3857</WMSCRS>
+        <WMSCRS>EPSG:4258</WMSCRS>
+    </WMSCRSList>
+    <boundingBox CRS="IGNF:LAMB93" minx="26214.4" miny="6023116.8" maxx="1258291.2" maxy="7150336"/>
+    <minRes>102.4</minRes>
+    <maxRes>209715.2</maxRes>
+    <opaque>true</opaque>
+    <authority>IGNF</authority>
+    <resampling>lanczos_4</resampling>
+    <pyramid>../../DATA/SCAN1000_JPG_LAMB93_FXX.pyr</pyramid>
+</layer>

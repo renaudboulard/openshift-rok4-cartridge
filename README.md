@@ -1,13 +1,14 @@
-## Openshift Nginx Cartridge
+## Openshift Rok4 Cartridge
 
-A cartridge for openshift that enables Nginx to be used as the web server.
+A cartridge for openshift that enables Rok4.
+It also runs the nginx server from gsterjov
 
 
 ### Installation
 
 To install this cartridge use the cartridge reflector when creating an app
 
-	rhc create-app myapp http://cartreflect-claytondev.rhcloud.com/reflect?github=gsterjov/openshift-nginx-cartridge
+	rhc create-app myapp http://cartreflect-claytondev.rhcloud.com/reflect?github=dimsum12/openshift-rok4-cartridge
 
 
 ### Configuration
