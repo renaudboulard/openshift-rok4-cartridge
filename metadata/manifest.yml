@@ -1,6 +1,6 @@
 Name: rok4
 Cartridge-Short-Name: ROK4
-Display-Name: Nginx
+Display-Name: Rok4 (nginx)
 Version: "0.18.0"
 Versions: ["0.18.0"]
 Website: https://github.com/dimsum12/openshift-rok4-cartridge
