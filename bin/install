@@ -5,3 +5,5 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 cp -r $OPENSHIFT_ROK4_DIR/usr/rok4/config $OPENSHIFT_REPO_DIR/
 
+cp -r $OPENSHIFT_ROK4_DIR/usr/nginx/config $OPENSHIFT_REPO_DIR/
+
