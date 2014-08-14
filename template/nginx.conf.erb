@@ -1,7 +1,7 @@
 upstream rok4 { server <%= ENV['OPENSHIFT_ROK4_IP'] %>:<%= ENV['OPENSHIFT_ROK4_PORT'] %>; }
  
 server {
-	listen  <%= ENV['OPENSHIFT_ROK4_NGINX_IP'] %>:<%= ENV['OPENSHIFT_ROK4_NGINX_PORT'] %>;
+	listen  <%= ENV['OPENSHIFT_ROK4_NGINX_PORT'] %>;
 	root <%= ENV['OPENSHIFT_REPO_DIR'] %>public;
 	server_name localhost;
 	 
