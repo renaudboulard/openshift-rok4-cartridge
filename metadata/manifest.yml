@@ -44,7 +44,6 @@ Group-Overrides:
 Endpoints:
   - Private-IP-Name:    ROK4_IP
     Private-Port-Name:  ROK4_PORT
-    Public-Port-Name:   ROK4_PROXY_PORT
     Private-Port: 5878
   - Private-IP-Name:   IP
     Private-Port-Name: PORT
