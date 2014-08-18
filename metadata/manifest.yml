@@ -20,10 +20,10 @@ Scaling:
   Min: 1
   Max: -1
 Cart-Data:
-  - Key: OPENSHIFT_ROK4_PORT
+  - Key:  OPENSHIFT_ROK4_NGINX_PORT
     Type: environment
     Description: "Internal port to which the web-framework binds to."
-  - Key: OPENSHIFT_ROK4_IP
+  - Key: OPENSHIFT_ROK4_NGINX_IP
     Type: environment
     Description: "Internal IP to which the web-framework binds to."
 Publishes:
