@@ -18,3 +18,9 @@ echo "$version" > env/NGINX_VERSION
 for dir in logs run; do
 	mkdir -p $dir
 done
+
+#Configure Ha proxy check URL
+if [ -f ${OPENSHIFT_HAPROXY_DIR}/conf/haproxy.cfg ]; then
+	echo "Update haproxy.conf"
+	sed -i.bak -e 's#option httpchk GET /$#option httpchk GET /wms\?request\=GetCapabilities\&service\=WMS HTTP\/1\.1\\r\\nHost\:\\ www#g' ${OPENSHIFT_HAPROXY_DIR}/conf/haproxy.cfg
+fi
