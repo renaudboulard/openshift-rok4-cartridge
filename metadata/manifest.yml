@@ -20,10 +20,10 @@ Scaling:
   Min: 1
   Max: -1
 Cart-Data:
-  - Key:  OPENSHIFT_ROK4_NGINX_PORT
+  - Key:  OPENSHIFT_ROK4_ROK4_PORT
     Type: environment
     Description: "Internal port to which the web-framework binds to."
-  - Key: OPENSHIFT_ROK4_NGINX_IP
+  - Key: OPENSHIFT_ROK4_ROK4_IP
     Type: environment
     Description: "Internal IP to which the web-framework binds to."
 Publishes:
@@ -42,14 +42,14 @@ Group-Overrides:
     - nginx-1.4
     - web_proxy
 Endpoints:
-  - Private-IP-Name:    IP
-    Private-Port-Name:  PORT
-    Public-Port-Name:   PROXY_PORT
+  - Private-IP-Name:    ROK4_IP
+    Private-Port-Name:  ROK4_PORT
+    Public-Port-Name:   ROK4_PROXY_PORT
     Private-Port: 5878
-  - Private-IP-Name:   NGINX_IP
-    Private-Port-Name: NGINX_PORT
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT
     Private-Port:      8812
-    Public-Port-Name:  NGINX_PROXY_PORT
+    Public-Port-Name:  PROXY_PORT
     Mappings:
       - Frontend:      ""
         Backend:       ""
