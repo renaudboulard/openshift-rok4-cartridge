@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pyramid>
+    <tileMatrixSet>LAMB93_2.5m</tileMatrixSet>
+    <format>TIFF_RAW_FLOAT32</format>
+    <channels>1</channels>
+    <nodataValue>-99999</nodataValue>
+    <interpolation>nn</interpolation>
+    <photometric>gray</photometric>
+    <level>
+        <tileMatrix>6</tileMatrix>
+        <baseDir>../BDORTHO_V19/IMAGE/6</baseDir>
+        <tilesPerWidth>16</tilesPerWidth>
+        <tilesPerHeight>16</tilesPerHeight>
+        <pathDepth>2</pathDepth>
+        <nodata>
+            <filePath>../BDORTHO_V19/NODATA/6/nd.tif</filePath>
+        </nodata>
+        <TMSLimits>
+            <minTileRow>8</minTileRow>
+            <maxTileRow>8</maxTileRow>
+            <minTileCol>0</minTileCol>
+            <maxTileCol>0</maxTileCol>
+        </TMSLimits>
+    </level>
+</Pyramid>
